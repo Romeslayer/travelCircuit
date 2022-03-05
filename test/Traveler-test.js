@@ -46,8 +46,8 @@ describe('Traveler', () => {
   });
 
   it('should store approved trips', () => {
-    expect(traveler1.trips.approved).to.be.eql(traveler1Trips.filter(trip => trip.staus === 'approved'));
-    expect(traveler2.trips.approved).to.be.eql(traveler2Trips.filter(trip => trip.staus === 'approved'));
+    expect(traveler1.trips.approved).to.be.eql(traveler1Trips);
+    expect(traveler2.trips.approved).to.be.eql(traveler2Trips.filter(trip => trip.status === 'approved'));
   });
 
   it('should store pending trips', () => {
@@ -58,5 +58,5 @@ describe('Traveler', () => {
   it('should be able to calculate total price of approved trips with 10% travel agent fee', () => {
     expect(traveler1.getTotal()).to.be.eql(7095);
     expect(traveler2.getTotal()).to.be.eql(29660);
-  })
+  });
 });
