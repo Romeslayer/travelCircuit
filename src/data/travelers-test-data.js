@@ -3,4 +3,4 @@ const travelersTestData = [
   {id: 2, name: 'Rachael Vaughten', travelerType: 'thrill-seeker'}
 ]
 
-export default travelerTestData;
+export default travelersTestData;
