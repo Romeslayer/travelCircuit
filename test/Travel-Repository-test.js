@@ -77,4 +77,4 @@ describe('TravelRepo', () => {
   it('should return Traveler not found for invalid id', () => {
     expect(travelRepo.getTraveler(3)).to.be.eql('Sorry there is no user with that id.');
   });
-})
+});
