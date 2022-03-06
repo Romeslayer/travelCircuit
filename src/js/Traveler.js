@@ -9,7 +9,7 @@ class Traveler {
   getTotal() {
     return Math.floor(this.trips.approved.reduce((acc, trip) => {
       acc += (((trip.travelers * 2) * trip.destination.estimatedFlightCostPerPerson) + (trip.duration * trip.destination.estimatedLodgingCostPerDay));
-      return acc
+      return acc;
     },0 ) * 1.1)
   }
 }
