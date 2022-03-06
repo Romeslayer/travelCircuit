@@ -47,9 +47,9 @@ describe('TravelRepo', () => {
   it('should be able to return Destination from given id' , () => {
     expect(travelRepo.getDestination(4)).to.be.eql(destinations[0]);
   });
-  
+
   it('should return Destination not found for an invaild id', () => {
-    expect(travelRepo.getDestination(1)).to.be.eql('Sorry that Destination id is invaild');
+    expect(travelRepo.getDestination(1)).to.be.eql('Sorry that Destination id is invalid.');
   });
   it('should create Trip instances from given data', () => {
     expect(travelRepo.trips).to.be.eql(trips);
@@ -65,8 +65,8 @@ describe('TravelRepo', () => {
   });
 
   it('should create Traveler instances based from given data', () => {
-    expect(travelRepo.travelers).to.include(traveler1);
-    expect(travelRepo.travelers).to.include(traveler2);
+    expect(travelRepo.travelers[0]).to.eql(traveler1);
+    expect(travelRepo.travelers[1]).to.eql(traveler2);
   });
 
   it('should be able to return the correct Traveler', () => {
