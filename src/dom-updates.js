@@ -33,6 +33,8 @@ const updateTrips = (traveler, date) => {
   displayTrips(current, past, future, pending);
 }
  const drawTripCard = (trip) => {
+   let status = new String(trip.status);
+    status = status[0].toUpperCase() + status.slice(1);
    return `
    <div class="trip-card">
     <img class="destination-img" src="${trip.destination.image}" alt="${trip.destination.alt}">
@@ -42,6 +44,7 @@ const updateTrips = (traveler, date) => {
     <p>Guests: ${trip.travelers}</p>
     <p>Nights: ${trip.duration}</p>
     <p>Total: $${trip.getCost()}</p>
+    <p class="${trip.status}">${status}</p>
     </div>
    </div>`;
  }
