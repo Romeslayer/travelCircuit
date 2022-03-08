@@ -1,3 +1,97 @@
-body {
+/* body {
   background: radial-gradient(circle, rgba(63,94,251,1) 0%, rgba(252,70,107,1) 100%);
+} */
+html {
+  color: black;
 }
+
+body {
+  display: flex;
+  height: auto;
+  overflow-x:hidden;
+  flex-wrap:wrap;
+  background: radial-gradient(circle, #d3f5fe 0%, #8cd2e3 100%);
+  justify-content: center;
+}
+
+#tripsSection {
+  display: flex;
+  width: 100%;
+  flex-flow: wrap;
+  text-align: center;
+}
+
+main {
+  width: 80%;
+}
+
+header {
+  display:flex;
+  justify-content: space-around;
+  width: 100%;
+  align-items: center;
+  background-color: #ed952a;
+}
+
+
+
+img {
+  width: 65%;
+}
+
+section h2 {
+  width: 50%;
+}
+
+section article {
+  width: 100%;
+  display: flex;
+  flex-wrap: inherit;
+  justify-content: space-around;
+  background-color: #fec86e;
+  margin-bottom: 1em;
+  border-radius: 12px;
+}
+
+article h3 {
+  width: 100%;
+  margin-bottom: 1em;
+}
+
+div {
+  width: 30%;
+  margin: 1%;
+  overflow: hidden;
+}
+.trip-card {
+  background-color: #ed952a;
+  border-radius: 20px;
+  display: flex;
+}
+.card-body {
+  width: 100%;
+}
+
+.form-section {
+  background-color: #ed952a;
+  text-align: center;
+  padding: .5em;
+}
+
+.trip-form {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+input,
+label {
+  width: 30%;
+}
+/*
+colors
+burnt orange: #ed952a
+light orange: #fec86e
+white orange: #fcf0d7
+light blue: #d3f5fe
+blue: #8cd2e3
+*/

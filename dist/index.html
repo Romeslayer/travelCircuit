@@ -9,22 +9,31 @@
 <body>
   <header>
     <h1>Travel Circuit</h1>
-    <h2>Welcome User</h2>
+    <h2 id="travelerName"></h2>
     <p>Log Out</p>
   </header>
 
   <main>
     <section id="tripsSection">
-      <h2>YTD:</h2>
-      <h2>Today's Date: </h2>
-      <article class="current-trips"></article>
-      <article class="pending-trips"></article>
-      <article class="future-trips"></article>
-      <article class="past-trips"></article>
+      <h2 id="totalSpent">YTD:</h2>
+      <h2 id="todayDate">Today's Date: </h2>
+      <article class="current-trips" id="currentTrips">
+        <h3>Current Trips</h3>
+      </article>
+      <article class="pending-trips" id="pendingTrips">
+        <h3>Pending Trips</h3>
+      </article>
+      <article class="future-trips" id="futureTrips">
+        <h3>Upcoming Trips</h3>
+      </article>
+      <article class="past-trips" id="pastTrips">
+        <h3>Previous Trips</h3>
+      </article>
     </section>
 
-    <section>
-      <form name="trip" class="trip-form" aria-hidden="true" id="tripForm">
+    <section class="form-section" id="formSection">
+      <h3>So you want to get away?</h3>
+      <form name="trip" class="trip-form" id="tripForm">
         <input type="hidden" name="id" id="trip-id">
         <input type="hidden" name="userID" id="user-id-input">
         <input type="hidden" name="status" value="pending">

@@ -7,7 +7,6 @@ class TravelRepo {
     this.destinations = destinations.map(des => new Destination(des));
     this.trips = trips.map(trip => new Trip(trip, this.getDestination(trip.destinationID)));
     this.travelers = travelers.map(traveler => new Traveler(traveler, this.getTrips(traveler.id)));
-    console.log(this.travelers);
   }
 
   getDestination(id) {
@@ -20,7 +19,7 @@ class TravelRepo {
   }
 
   getTraveler(id) {
-    return this.travelers.find(traveler => traveler.id === id) || 'Sorry there is no user with that id.';
+    return this.travelers.find(traveler => traveler.id === id) || `Sorry there is no user with id ${id}.`;
   }
 }
 
