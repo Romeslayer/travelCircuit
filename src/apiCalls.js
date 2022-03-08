@@ -1,8 +1,14 @@
+import {showResponse} from './dom-updates.js'
+
+
 const getData = (url) => {
   return fetch(`http://localhost:3001/api/v1/${url}`)
      .then(response => response.json())
      .then(data => data[url])
-     .catch(e => message.innerText = `Your request has been denied! Error: ${e.message}`);
+     .catch(e => {
+       message.innerText = `Your request has been denied! Error: ${e.message}`
+       showResponse();
+     });
 }
 
 const postTrip = (trip) => {
@@ -16,7 +22,10 @@ const postTrip = (trip) => {
       message.innerText = `Your trip request has been accepted.`
       return response.json();
     })
-    .catch(e => message.innerText = `Your trip request has been rejected: ${e.message}`);
+    .catch(e => {
+      message.innerText = `Your trip request has been rejected: ${e.message}`
+      showResponse();
+    });
 }
 export {
   getData,
