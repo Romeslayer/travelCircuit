@@ -38,13 +38,13 @@
         <input type="hidden" name="status" value="pending">
         <input type="hidden" name="suggestedActivities" id="suggestInput">
         <label for="destination">Which Destination are you headed to?</label>
-        <select name="destination" id="formDestinations" required></select>
-        <label for="date">What day?</label>
+        <select name="destination"  required id="formDestinations" ></select>
+        <label for="dateInput">What day?</label>
         <input type="date" name="date" required id="dateInput">
-        <label for="duration">How many days do you want to stay away?</label>
-        <input type="number" name="duration" min="1" required>
-        <label for="travelers">How many guests?</label>
-        <input type="number" min="1" name="travelers" required>
+        <label for="durationInput">How many days do you want to stay away?</label>
+        <input type="number" required name="duration" min="1" id="durationInput">
+        <label for="travelersInput">How many guests?</label>
+        <input type="number" min="1" required name="travelers" id="travelersInput">
         <input type="submit">
       </form>
       <article class="form-display">
