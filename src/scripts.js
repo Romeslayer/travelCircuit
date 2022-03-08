@@ -5,6 +5,7 @@ import {
 import {
   updateDay,
   updateTraveler,
+  createDestinationsList
 } from './dom-updates.js';
 import Traveler from './js/Traveler.js';
 import Destination from './js/Destination.js';
@@ -28,13 +29,24 @@ const handleData = (data) => {
   let travelers = data[0];
   let trips = data[1];
   let destinations = data[2];
+  createDestinationsList(destinations);
   let travel = new TravelRepo(travelers, trips, destinations);
   let today =  new Date();
   let traveler = getRandomTraveler(travel);
   updateTraveler(traveler, today)
   updateDay(today);
-  console.log(travel);
 }
 
+const checkForm = (e) => {
+  const form = tripForm;
+  const data = new FormData(tripForm);
+  console.log(data.has('id'));
+}
 
-fetchData();
+const submitForm = (e) => {
+  e.preventDefault();
+  if(checkform()) 1 + 1
+}
+window.onload = fetchData;
+tripForm.onsubmit = submitForm;
+tripForm.oninput = checkForm;

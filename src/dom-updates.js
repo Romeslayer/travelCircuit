@@ -32,6 +32,13 @@ const updateTrips = (traveler, date) => {
 
   displayTrips(current, past, future, pending);
 }
+
+const createDestinationsList = (destinations) => {
+  destinations.map(des => [des.destination, des.id]).sort().forEach(destination => {
+    formDestinations.innerHTML+= `<option value="${destination[1]}">${destination[0]}</option>`
+  });
+}
+
  const drawTripCard = (trip) => {
    let status = new String(trip.status);
     status = status[0].toUpperCase() + status.slice(1);
@@ -73,5 +80,6 @@ const updateTraveler = (traveler, date) => {
 
 export {
   updateDay,
-  updateTraveler
+  updateTraveler,
+  createDestinationsList
 }
