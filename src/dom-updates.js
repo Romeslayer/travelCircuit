@@ -54,17 +54,17 @@ const setupForm = (traveler, travelRepo) => {
     <p>${trip.date}</p>
     <p>Guests: ${trip.travelers}</p>
     <p>Nights: ${trip.duration}</p>
-    <p>Total: $${trip.getCost()}</p>
+    <p>Total: $${Math.floor(trip.getCost() * 1.1)}</p>
     <p class="${trip.status}">${status}</p>
     </div>
    </div>`;
  }
 
 const displayTrips = (current, past, future, pending) => {
-  currentTrips.innerHTML = ` `;
-  pastTrips.innerHTML = ` `;
-  futureTrips.innerHTML = ` `;
-  pendingTrips.innerHTML = ` `;
+  currentTrips.innerHTML = `<h3>Current Trips</h3>`;
+  pastTrips.innerHTML = `<h3>Pending Trips</h3>`;
+  futureTrips.innerHTML = `<h3>Upcoming Trips</h3>`;
+  pendingTrips.innerHTML = `<h3>Previous Trips</h3>`;
   if(current) {
     currentTrips.innerHTML+= drawTripCard(current);
   }
@@ -88,7 +88,7 @@ const updateTraveler = (traveler, date) => {
 }
 
 const updateEstimate = (trip) => {
-  estimate.innerText = `Estimate: $${trip.getCost()}`
+  estimate.innerText = `Estimate: $${Math.floor(trip.getCost() * 1.1)}`
   exampleTripSpace.innerHTML = drawTripCard(trip);
 }
 
