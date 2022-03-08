@@ -1,18 +1,40 @@
-// This is the JavaScript entry file - your code begins here
-// Do not delete or rename this file ********
-
-// An example of how you tell webpack to use a CSS (SCSS) file
 import './css/index.css';
 import {
   getData
 } from './apiCalls';
-// An example of how you tell webpack to use an image (also need to link to it in the index.html)
-import './images/turing-logo.png'
+import {
+  updateDay,
+  updateTraveler,
+} from './dom-updates.js';
+import Traveler from './js/Traveler.js';
+import Destination from './js/Destination.js';
+import TravelRepo from './js/TravelRepo.js';
+import Trip from './js/Trip.js';
+
+const todayDate = document.querySelector('#todayDate');
+
 
 const fetchData = () => {
   Promise.all([getData('travelers'), getData('trips'), getData('destinations')]).then(data => {
-    console.log(data);
-  })
+    handleData(data);
+  });
 }
+
+const getRandomTraveler = (travelRepo) => {
+  return travelRepo.getTraveler(Math.floor(Math.random() * (travelRepo.travelers.length)) + 1)
+}
+
+const handleData = (data) => {
+  let travelers = data[0];
+  let trips = data[1];
+  let destinations = data[2];
+  let travel = new TravelRepo(travelers, trips, destinations);
+  let today =  new Date();
+  let traveler = getRandomTraveler(travel);
+  updateTraveler(traveler, today)
+  updateDay(today);
+  console.log(travel);
+}
+
+
 fetchData();
-console.log('This is the JavaScript entry file - your code begins here.');
