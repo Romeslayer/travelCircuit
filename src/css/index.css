@@ -12,6 +12,7 @@ body {
   flex-wrap:wrap;
   background: radial-gradient(circle, #d3f5fe 0%, #8cd2e3 100%);
   justify-content: center;
+  position: relative;
 }
 
 #tripsSection {
@@ -76,6 +77,12 @@ div {
   background-color: #ed952a;
   text-align: center;
   padding: .5em;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.form-section h3 {
+  width: 100%;
 }
 
 .trip-form {
@@ -83,9 +90,56 @@ div {
   flex-wrap: wrap;
   justify-content: center;
 }
+
+.trip-form, .form-display {
+  width: 50%;
+}
+
 input,
-label {
-  width: 30%;
+label,
+select {
+  width: 80%;
+  padding: .25em;
+  margin-bottom: .5em;
+}
+
+
+input:invalid {
+  border: 2px dashed red;
+}
+
+input:valid {
+  border: 2px none black;
+}
+
+#exampleTripSpace .trip-card {
+  width: 100%;
+}
+
+.alert {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.message-box {
+  background-color: #fcf0d7;
+  position: fixed;
+  left: 41%;
+  top: 36%;
+  width: 25%;
+  height: 25%;
+  text-align: center;
+  display: flex;
+  align-items: center;
+}
+
+.filter {
+  filter:blur(10px) brightness(.5);
+}
+
+.hidden {
+  display: none;
 }
 /*
 colors

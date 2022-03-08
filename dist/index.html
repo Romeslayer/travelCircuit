@@ -7,13 +7,12 @@
   <title>Travel Circuit</title>
 </head>
 <body>
-  <header>
-    <h1>Travel Circuit</h1>
-    <h2 id="travelerName"></h2>
-    <p>Log Out</p>
-  </header>
-
   <main>
+    <header>
+      <h1>Travel Circuit</h1>
+      <h2 id="travelerName"></h2>
+      <p>Log Out</p>
+    </header>
     <section id="tripsSection">
       <h2 id="totalSpent">YTD:</h2>
       <h2 id="todayDate">Today's Date: </h2>
@@ -34,23 +33,32 @@
     <section class="form-section" id="formSection">
       <h3>So you want to get away?</h3>
       <form name="trip" class="trip-form" id="tripForm">
-        <input type="hidden" name="id" id="trip-id">
-        <input type="hidden" name="userID" id="user-id-input">
+        <input type="hidden" name="id" id="tripIdInput">
+        <input type="hidden" name="userID" id="userIdInput">
         <input type="hidden" name="status" value="pending">
-        <input type="hidden" name="suggestedActivities" id="suggest-input">
-        <label for="date">What day?</label>
-        <input type="date" name="date">
-        <label for="duration">How many days do you want to stay away?</label>
-        <input type="number" name="duration" min="0">
-        <label for="travelers">How many travelers?</label>
-        <input type="number" min="0" name="travelers">
+        <input type="hidden" name="suggestedActivities" id="suggestInput">
+        <label for="destination">Which Destination are you headed to?</label>
+        <select name="destination"  required id="formDestinations" ></select>
+        <label for="dateInput">What day?</label>
+        <input type="date" name="date" required id="dateInput">
+        <label for="durationInput">How many days do you want to stay away?</label>
+        <input type="number" required name="duration" min="1" id="durationInput">
+        <label for="travelersInput">How many guests?</label>
+        <input type="number" min="1" required name="travelers" id="travelersInput">
         <input type="submit">
       </form>
+      <article class="form-display">
+        <h3 id="estimate">Estimate:</h3>
+        <article id="exampleTripSpace"></artcile>
+      </article>
     </section>
   </main>
 
-  <footer>
-  </footer>
+  <div class="alert hidden" id="alertBox">
+    <article class="message-box">
+      <h3 id='message'></h3>
+    </article>
+  </div>
   <!-- Do not include the scripts.js or class files here - it is done by the webpack server -->
   <script src="bundle.js"></script>
 
