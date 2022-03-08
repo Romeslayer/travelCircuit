@@ -62,9 +62,9 @@ const setupForm = (traveler, travelRepo) => {
 
 const displayTrips = (current, past, future, pending) => {
   currentTrips.innerHTML = `<h3>Current Trips</h3>`;
-  pastTrips.innerHTML = `<h3>Pending Trips</h3>`;
+  pastTrips.innerHTML = `<h3>Previous Trips</h3>`;
   futureTrips.innerHTML = `<h3>Upcoming Trips</h3>`;
-  pendingTrips.innerHTML = `<h3>Previous Trips</h3>`;
+  pendingTrips.innerHTML = `<h3>PendingTrips</h3>`;
   if(current) {
     currentTrips.innerHTML+= drawTripCard(current);
   }
