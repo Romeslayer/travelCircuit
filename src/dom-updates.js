@@ -39,7 +39,7 @@ const setupForm = (traveler, travelRepo) => {
   dateInput.min = `${today.getFullYear()}-${today.getMonth() + 1}-${today.getDate()}`;
   userIdInput.value = traveler.id;
   travelRepo.destinations.map(des => [des.destination, des.id]).sort().forEach(destination => {
-    formDestinations.innerHTML+= `<option value="${destination[1]}">${destination[0]}</option>`
+  formDestinations.innerHTML+= `<option value="${destination[1]}">${destination[0]}</option>`
   });
 }
 
@@ -61,8 +61,12 @@ const setupForm = (traveler, travelRepo) => {
  }
 
 const displayTrips = (current, past, future, pending) => {
+  currentTrips.innerHTML = ` `;
+  pastTrips.innerHTML = ` `;
+  futureTrips.innerHTML = ` `;
+  pendingTrips.innerHTML = ` `;
   if(current) {
-    currentTrips.innerHMTL+= drawTripCard(current);
+    currentTrips.innerHTML+= drawTripCard(current);
   }
 
   if(past.length) {
@@ -79,13 +83,37 @@ const displayTrips = (current, past, future, pending) => {
 }
 
 const updateTraveler = (traveler, date) => {
-  travelerName.innerText = `Welcome ${traveler.name}`
+  travelerName.innerText = `Welcome ${traveler.name}`;
   updateTrips(traveler, date);
 }
 
+const updateEstimate = (trip) => {
+  estimate.innerText = `Estimate: $${trip.getCost()}`
+  exampleTripSpace.innerHTML = drawTripCard(trip);
+}
+
+const resetEstimate = () => {
+  estimate.innerText = `Estimate:`;
+  exampleTripSpace.innerHTML = ` `;
+}
+
+const showResponse = () => {
+  resetEstimate();
+  document.querySelector('main').classList.add('filter');
+  alertBox.classList.remove('hidden');
+  setTimeout(hideResponse, 3000)
+}
+
+const hideResponse = () => {
+  alertBox.classList.add('hidden');
+  document.querySelector('main').classList.remove('filter');
+}
 export {
   updateDay,
   updateTraveler,
   setupForm,
-  drawTripCard
+  drawTripCard,
+  showResponse,
+  updateEstimate,
+  resetEstimate
 }

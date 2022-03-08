@@ -7,13 +7,12 @@
   <title>Travel Circuit</title>
 </head>
 <body>
-  <header>
-    <h1>Travel Circuit</h1>
-    <h2 id="travelerName"></h2>
-    <p>Log Out</p>
-  </header>
-
   <main>
+    <header>
+      <h1>Travel Circuit</h1>
+      <h2 id="travelerName"></h2>
+      <p>Log Out</p>
+    </header>
     <section id="tripsSection">
       <h2 id="totalSpent">YTD:</h2>
       <h2 id="todayDate">Today's Date: </h2>
@@ -55,8 +54,11 @@
     </section>
   </main>
 
-  <footer>
-  </footer>
+  <div class="alert hidden" id="alertBox">
+    <article class="message-box">
+      <h3 id='message'></h3>
+    </article>
+  </div>
   <!-- Do not include the scripts.js or class files here - it is done by the webpack server -->
   <script src="bundle.js"></script>
 

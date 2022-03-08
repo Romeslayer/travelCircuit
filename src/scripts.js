@@ -1,12 +1,16 @@
 import './css/index.css';
 import {
-  getData
+  getData,
+  postTrip
 } from './apiCalls';
 import {
   updateDay,
   updateTraveler,
   setupForm,
-  drawTripCard
+  drawTripCard,
+  showResponse,
+  updateEstimate,
+  resetEstimate
 } from './dom-updates.js';
 import Traveler from './js/Traveler.js';
 import Destination from './js/Destination.js';
@@ -37,8 +41,6 @@ const handleData = (data) => {
   updateTraveler(traveler, today)
   updateDay(today)
   setupForm(traveler, travel);
-  tripForm.onsubmit = submitForm;
-  tripForm.oninput = checkForm;
 }
 
 const checkForm = (e) => {
@@ -50,20 +52,29 @@ const checkForm = (e) => {
       userID: parseInt(data.get('userID')),
       destinationID: parseInt(data.get('destination')),
       travelers: parseInt(data.get('travelers')),
-      date: data.get('date'),
+      date: data.get('date').split('-').join('/'),
       duration: parseInt(data.get('duration')),
       status: "pending",
       suggestedActivities: []
     }
     let exampleTrip = new Trip(newTrip, travel.destinations.find(des => des.id === newTrip.destinationID));
-    estimate.innerText = `Estimate: $${exampleTrip.getCost()}`
-    exampleTripSpace.innerHTML = drawTripCard(exampleTrip);
+    updateEstimate(exampleTrip);
+    return newTrip;
   }
 }
 
 const submitForm = (e) => {
-  tripIdInput.value = Date.now() + Math.random();
   e.preventDefault();
-  if(checkForm()) console.log(checkForm())
+  tripIdInput.value = Date.now() + Math.random();
+  if(checkForm()) {
+    postTrip(checkForm())
+    showResponse();
+    e.target.reset();
+    fetchData();
+  }
 }
+
+
 window.onload = fetchData;
+tripForm.onsubmit = submitForm;
+tripForm.oninput = checkForm;
