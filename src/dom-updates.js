@@ -33,8 +33,12 @@ const updateTrips = (traveler, date) => {
   displayTrips(current, past, future, pending);
 }
 
-const createDestinationsList = (destinations) => {
-  destinations.map(des => [des.destination, des.id]).sort().forEach(destination => {
+const setupForm = (traveler, travelRepo) => {
+  suggestInput.value = [];
+  let today = new Date()
+  dateInput.min = `${today.getFullYear()}-${today.getMonth() + 1}-${today.getDate()}`;
+  userIdInput.value = traveler.id;
+  travelRepo.destinations.map(des => [des.destination, des.id]).sort().forEach(destination => {
     formDestinations.innerHTML+= `<option value="${destination[1]}">${destination[0]}</option>`
   });
 }
@@ -55,6 +59,7 @@ const createDestinationsList = (destinations) => {
     </div>
    </div>`;
  }
+
 const displayTrips = (current, past, future, pending) => {
   if(current) {
     currentTrips.innerHMTL+= drawTripCard(current);
@@ -81,5 +86,6 @@ const updateTraveler = (traveler, date) => {
 export {
   updateDay,
   updateTraveler,
-  createDestinationsList
+  setupForm,
+  drawTripCard
 }

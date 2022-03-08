@@ -34,22 +34,23 @@
     <section class="form-section" id="formSection">
       <h3>So you want to get away?</h3>
       <form name="trip" class="trip-form" id="tripForm">
-        <input type="hidden" name="id" id="trip-id">
-        <input type="hidden" name="userID" id="user-id-input">
+        <input type="hidden" name="id" id="tripIdInput">
+        <input type="hidden" name="userID" id="userIdInput">
         <input type="hidden" name="status" value="pending">
-        <input type="hidden" name="suggestedActivities" id="suggest-input">
+        <input type="hidden" name="suggestedActivities" id="suggestInput">
         <label for="destination">Which Destination are you headed to?</label>
-        <select name="destination" id="formDestinations"></select>
+        <select name="destination" id="formDestinations" required></select>
         <label for="date">What day?</label>
-        <input type="date" name="date">
+        <input type="date" name="date" required id="dateInput">
         <label for="duration">How many days do you want to stay away?</label>
-        <input type="number" name="duration" min="0">
-        <label for="travelers">How many travelers?</label>
-        <input type="number" min="0" name="travelers">
+        <input type="number" name="duration" min="1" required>
+        <label for="travelers">How many guests?</label>
+        <input type="number" min="1" name="travelers" required>
         <input type="submit">
       </form>
       <article class="form-display">
-        <h3>Estimate: <h3>
+        <h3 id="estimate">Estimate:</h3>
+        <article id="exampleTripSpace"></artcile>
       </article>
     </section>
   </main>

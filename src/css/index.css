@@ -76,6 +76,12 @@ div {
   background-color: #ed952a;
   text-align: center;
   padding: .5em;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.form-section h3 {
+  width: 100%;
 }
 
 .trip-form {
@@ -83,9 +89,26 @@ div {
   flex-wrap: wrap;
   justify-content: center;
 }
+
+.trip-form, .form-display {
+  width: 50%;
+}
+
 input,
-label {
-  width: 30%;
+label,
+select {
+  width: 80%;
+  padding: .25em;
+  margin-bottom: .5em;
+}
+
+
+input:invalid {
+  border: 2px dashed red;
+}
+
+input:valid {
+  border: 2px none black;
 }
 /*
 colors
