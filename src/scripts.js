@@ -28,7 +28,7 @@ const fetchData = () => {
 }
 
 const getRandomTraveler = (travelRepo) => {
-  return travelRepo.getTraveler(2)
+  return travelRepo.getTraveler(2);
 }
 
 const handleData = (data) => {
