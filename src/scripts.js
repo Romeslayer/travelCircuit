@@ -28,7 +28,7 @@ const fetchData = () => {
 }
 
 const getRandomTraveler = (travelRepo) => {
-  return travelRepo.getTraveler(Math.floor(Math.random() * 50) + 1)
+  return travelRepo.getTraveler(2)
 }
 
 const handleData = (data) => {
