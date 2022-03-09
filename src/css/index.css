@@ -141,6 +141,18 @@ input:valid {
 .hidden {
   display: none;
 }
+
+.login {
+  text-align: center;
+  background-color: #ed952a;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.login h1,
+.login p {
+  width: 100%;
+}
 /*
 colors
 burnt orange: #ed952a

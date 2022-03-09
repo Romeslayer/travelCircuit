@@ -64,7 +64,7 @@ const displayTrips = (current, past, future, pending) => {
   currentTrips.innerHTML = `<h3>Current Trips</h3>`;
   pastTrips.innerHTML = `<h3>Previous Trips</h3>`;
   futureTrips.innerHTML = `<h3>Upcoming Trips</h3>`;
-  pendingTrips.innerHTML = `<h3>PendingTrips</h3>`;
+  pendingTrips.innerHTML = `<h3>Pending Trips</h3>`;
   if(current) {
     currentTrips.innerHTML+= drawTripCard(current);
   }
@@ -98,7 +98,6 @@ const resetEstimate = () => {
 }
 
 const showResponse = () => {
-  resetEstimate();
   document.querySelector('main').classList.add('filter');
   alertBox.classList.remove('hidden');
   setTimeout(hideResponse, 3000)
@@ -108,6 +107,23 @@ const hideResponse = () => {
   alertBox.classList.add('hidden');
   document.querySelector('main').classList.remove('filter');
 }
+
+const hideLogin = () => {
+  loginBox.classList.add('hidden');
+}
+
+const showLogin = () => {
+  loginBox.classList.remove('hidden');
+}
+
+const showMain = () => {
+  document.querySelector('main').classList.remove('hidden');
+}
+
+const hideMain = () => {
+  document.querySelector('main').classList.add('hidden');
+}
+
 export {
   updateDay,
   updateTraveler,
@@ -115,5 +131,9 @@ export {
   drawTripCard,
   showResponse,
   updateEstimate,
-  resetEstimate
+  resetEstimate,
+  hideLogin,
+  showLogin,
+  showMain,
+  hideMain
 }

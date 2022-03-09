@@ -7,11 +7,11 @@
   <title>Travel Circuit</title>
 </head>
 <body>
-  <main>
+  <main class="hidden">
     <header>
       <h1>Travel Circuit</h1>
       <h2 id="travelerName"></h2>
-      <p>Log Out</p>
+      <button id="logOut">Log Out</button>
     </header>
     <section id="tripsSection">
       <h2 id="totalSpent">YTD:</h2>
@@ -57,6 +57,20 @@
   <div class="alert hidden" id="alertBox">
     <article class="message-box">
       <h3 id='message'></h3>
+    </article>
+  </div>
+
+  <div id="loginBox">
+    <article class="login">
+      <h1>Welcome to Travel Circuit</h1>
+      <p>Please Login</p>
+      <form id="loginForm">
+        <label for="username">Username:</label>
+        <input type="text" name="username" id="username"></input>
+        <label for="password" >Password:</label>
+        <input type="password" name="password" id="password"></input>
+        <input type="submit" value="Log in"></input>
+      </form>
     </article>
   </div>
   <!-- Do not include the scripts.js or class files here - it is done by the webpack server -->
